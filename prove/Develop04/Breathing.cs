@@ -1,24 +1,39 @@
 using System;
+using System.IO;
+using System.Collections.Generic;
 
-class Program
+public class Breathing:Activity
 {
-    static void Main(string[] args)
-    {
 
+    public Breathing() :base("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing."){
+    }
 
-        Breathing breathing = new Breathing();
+    public void BreatheInOut() {
+        TimeSpan duration = TimeSpan.FromSeconds(GetDuration());
+        DateTime startTime = DateTime.Now;
 
-        int _time = int.Parse(Console.ReadLine());
+        while (DateTime.Now - startTime < duration) {
 
-        breathing.SetDuration(_time);
+            Console.Write("Breathe in...");
+            Console.WriteLine("");
+            for (int i = 5; i > 0; i--)
+            {
+                Console.Write(i - 1);
+                Thread.Sleep(1000);
+                Console.Write("\b\b");
+            }
 
-        int duration = breathing.GetDuration();
+            Console.Write("\nNow breathe out...");
+            Console.WriteLine("");
+            for (int i = 7; i > 0; i--)
+            {
+                Console.Write(i - 1);
+                Thread.Sleep(1000);
+                Console.Write("\b\b");
+            }
 
-        int _check = breathing.BreatheInOut();
-
-        if (duration >= 0){
-            breathing.BreatheInOut();
-            duration = duration - _check;
+            Console.WriteLine("");
         }
     }
+
 }

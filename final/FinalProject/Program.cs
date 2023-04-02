@@ -1,9 +1,18 @@
 using System;
 
-class Program
+public class BaseClass
 {
-    static void Main(string[] args)
+    public virtual void DoWork() { }
+    public virtual int WorkProperty
     {
-        Console.WriteLine("Hello FinalProject World!");
+        get { return 0; }
     }
+}
+public class DerivedClass : BaseClass
+{
+    public override void DoWork() { }
+    public override int WorkProperty
+    {
+        get { return 0; }
+    } 
 }
